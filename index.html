@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>梅岡時光機｜楊梅高中校史</title>
+<meta name="description" content="桃園市立楊梅高級中等學校校史動態解說影片（1968→2026），以歷年空中視角示意圖、文字、原創合成配樂與瀏覽器旁白敘事。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1d2540; --panel:#141a2e; --ink:#f5f1e6; --muted:#a9b0c6; --accent:#ffd34e; --accent2:#ff7a6b;
+}
+:root[data-theme="light"]{ --bg:#efe7d6; --panel:#fff8ec; --ink:#1f2a44; --muted:#5d6680; }
+@media (prefers-color-scheme: light){ :root:not([data-theme="dark"]){ --bg:#efe7d6; --panel:#fff8ec; --ink:#1f2a44; --muted:#5d6680; } }
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+#wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%;padding:8px 16px}
+#stageBox{position:relative;width:min(100%, calc((100vh - 84px) * 16 / 9));aspect-ratio:16/9;border-radius:14px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.35);background:#fff8ec}
+#stage{display:block;width:100%;height:100%}
+#cover{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.2%;background:rgba(31,42,68,.55);backdrop-filter:blur(3px);cursor:pointer;color:#fff;text-align:center}
+#cover .big{width:clamp(64px,11%,140px);aspect-ratio:1;border-radius:50%;background:#ffd34e;display:grid;place-items:center;box-shadow:0 8px 0 #e0a800;transition:transform .15s}
+#cover:hover .big{transform:scale(1.06)}
+#cover .big svg{width:42%;margin-left:8%}
+#cover h1{margin:0;font-size:clamp(18px,3.4vw,44px);font-weight:900;letter-spacing:.06em;text-shadow:0 3px 0 rgba(0,0,0,.25)}
+#cover p{margin:0;font-size:clamp(12px,1.4vw,18px);opacity:.92}
+#cover.hidden{display:none}
+#bar{width:min(100%, calc((100vh - 84px) * 16 / 9));display:flex;align-items:center;gap:10px;padding:10px 4px 2px;flex-wrap:wrap}
+#bar button{background:var(--panel);color:var(--ink);border:1px solid rgba(127,127,127,.35);border-radius:999px;padding:6px 12px;font:inherit;font-size:14px;cursor:pointer;min-height:34px}
+#bar button:hover{border-color:var(--accent)}
+#bar button.on{background:var(--accent);color:#1f2a44;border-color:var(--accent)}
+#seek{flex:1 1 200px;accent-color:#ff7a6b;min-width:120px}
+#time{font-variant-numeric:tabular-nums;font-size:14px;color:var(--muted);min-width:92px;text-align:center}
+#status{font-size:12px;color:var(--muted);width:100%;text-align:center}
+dialog{max-width:min(720px,92vw);border:none;border-radius:16px;background:var(--panel);color:var(--ink);padding:22px 24px;line-height:1.7}
+dialog::backdrop{background:rgba(0,0,0,.5)}
+dialog h2{margin:.2em 0 .4em;font-size:20px}
+dialog li{margin:.25em 0;font-size:14px}
+dialog a{color:#ff7a6b}
+dialog .note{font-size:13px;color:var(--muted)}
+.chip{cursor:pointer}
+.chip:hover rect{filter:brightness(1.08)}
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div id="stageBox">
+    <svg id="stage" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="楊梅高中校史動態影片">
+      <defs>
+        <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+          <path d="M48 0H0V48" fill="none" stroke="#e6dcc6" stroke-width="1.4"/>
+        </pattern>
+        <pattern id="hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <rect width="14" height="14" fill="#ffd34e"/><rect width="7" height="14" fill="#2b2b2b"/>
+        </pattern>
+        <filter id="bw" color-interpolation-filters="sRGB">
+          <feColorMatrix type="matrix" values="0.33 0.5 0.17 0 0.04  0.31 0.48 0.16 0 0.02  0.27 0.42 0.14 0 0  0 0 0 1 0"/>
+        </filter>
+        <filter id="faded" color-interpolation-filters="sRGB">
+          <feColorMatrix type="matrix" values="0.75 0.2 0.05 0 0.06  0.12 0.78 0.1 0 0.04  0.08 0.2 0.62 0 0.03  0 0 0 1 0"/>
+        </filter>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+          <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#1f2a44" flood-opacity=".28"/>
+        </filter>
+        <filter id="soft" x="-10%" y="-10%" width="120%" height="130%">
+          <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#1f2a44" flood-opacity=".22"/>
+        </filter>
+        <filter id="grain" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="7"/>
+          <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0"/>
+          <feComposite in2="SourceGraphic" operator="in"/>
+        </filter>
+        <clipPath id="photoClip"><rect x="-500" y="-340" width="1000" height="620" rx="4"/></clipPath>
+        <clipPath id="flipClip"><polygon id="flipPoly" points="500,-340 500,-340 500,280 500,280"/></clipPath>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#bfe6ff"/><stop offset=".55" stop-color="#fff8ec"/>
+        </linearGradient>
+        <linearGradient id="prog" x1="0" x2="1">
+          <stop offset="0" stop-color="#4fb3f6"/><stop offset=".5" stop-color="#6fd6a8"/><stop offset="1" stop-color="#ffd34e"/>
+        </linearGradient>
+        <linearGradient id="flipShade" x1="0" x2="1">
+          <stop offset="0" stop-color="#000" stop-opacity=".0"/><stop offset=".8" stop-color="#000" stop-opacity=".18"/><stop offset="1" stop-color="#fff" stop-opacity=".7"/>
+        </linearGradient>
+      </defs>
+      <!-- 背景 -->
+      <rect width="1920" height="1080" fill="#fff8ec"/>
+      <rect width="1920" height="1080" fill="url(#sky)" opacity=".75"/>
+      <rect width="1920" height="1080" fill="url(#grid)" opacity=".7"/>
+      <g id="bgFx"></g>
+      <!-- 拍立得空照 -->
+      <g id="card" transform="translate(560 505)">
+        <rect x="-522" y="-362" width="1044" height="730" rx="10" fill="#ffffff" filter="url(#shadow)"/>
+        <g clip-path="url(#photoClip)">
+          <rect x="-500" y="-340" width="1000" height="620" fill="#cfd8b0"/>
+          <g id="kb">
+            <g id="layerBot"><g class="f"><g class="c"></g></g><g class="live"></g></g>
+            <g id="layerTop" clip-path="url(#flipClip)"><g class="f"><g class="c"></g></g><g class="live"></g></g>
+          </g>
+          <rect id="grainRect" x="-500" y="-340" width="1000" height="620" filter="url(#grain)" opacity="0"/>
+          <polygon id="flipEdge" points="" fill="url(#flipShade)"/>
+          <g id="photoUi"></g>
+        </g>
+        <g id="cardUi"></g>
+      </g>
+      <g id="ui"></g>
+      <g id="ribbon"></g>
+      <g id="flash"></g>
+    </svg>
+    <div id="cover">
+      <div class="big"><svg viewBox="0 0 24 24"><path d="M5 3l15 9-15 9z" fill="#1f2a44"/></svg></div>
+      <h1>梅岡時光機｜楊梅高中校史 1968 → 2026</h1>
+      <p id="coverMsg">約 5 分鐘・含旁白、原創配樂與音效・點一下開始</p>
+    </div>
+  </div>
+  <div id="bar">
+    <button id="play" aria-label="播放/暫停">▶ 播放</button>
+    <span id="time">0:00 / 5:00</span>
+    <input id="seek" type="range" min="0" max="300" step="0.1" value="0" aria-label="播放進度">
+    <button id="voiceBtn" class="on" aria-pressed="true">旁白 開</button>
+    <button id="musicBtn" class="on" aria-pressed="true">音樂 開</button>
+    <button id="ccBtn" class="on" aria-pressed="true">字幕 開</button>
+    <button id="srcBtn">資料來源</button>
+    <button id="fsBtn">全螢幕</button>
+    <div id="status">提示：點選畫面下方的年份標籤，可直接跳到那一年；空白鍵播放／暫停，← → 快退／快轉 5 秒。</div>
+  </div>
+</div>
+
+<dialog id="srcDlg">
+  <h2>資料來源與說明</h2>
+  <p class="note">本片敘述的年份、校名改制、科別與校舍工程，依下列學校與政府公開資料整理；只採用 1968 年省立楊梅高級中學成立以後的史料，不含楊梅國中的資料。影片中的「空中視角」是依年代重新繪製的<strong>示意圖</strong>，並不是真實的衛星或航照影像，建築的位置與形狀也只是象徵。真實的歷年影像可以到下列圖資平台對照查看：</p>
+  <ul>
+    <li>學校官網／校友會〈市立楊梅高級中學簡史〉：<a href="https://www.ymhs.tyc.edu.tw/" target="_blank" rel="noopener">www.ymhs.tyc.edu.tw</a></li>
+    <li>桃園市政府新聞：〈楊梅高中綜合教學大樓預計110年6月前完工〉 <a href="https://www.tycg.gov.tw/NewsPage_Content.aspx?n=10&s=309657" target="_blank" rel="noopener">tycg.gov.tw</a></li>
+    <li>桃園市政府新聞：〈楊梅高中綜合教學大樓新建工程〉 <a href="https://opc.tycg.gov.tw/News_Content.aspx?n=9330&sms=13483&s=989671" target="_blank" rel="noopener">opc.tycg.gov.tw</a></li>
+    <li>維基百科「桃園市立楊梅高級中等學校」、「史振鼎」條目</li>
+    <li>歷年影像比對：Google Earth 歷史影像、Google 地圖衛星圖層；中央研究院「臺灣百年歷史地圖」；農業部林業及自然保育署航測及遙測分署（舊航照）；內政部國土測繪中心「國土測繪圖資服務雲」</li>
+  </ul>
+  <p class="note">待查證的地方：悅知樓的實際啟用日期（市府原本預計 110 年／2021 年 6 月前完工）；校長名單依學校簡介列出的十位，片中沒有標註每一位的任期。</p>
+  <form method="dialog"><button>關閉</button></form>
+</dialog>
+
+<script>
+"use strict";
+/* ============================================================
+   時間表（畫面・旁白・音樂・音效共用）
+   ============================================================ */
+const DUR = 300, FPS = 30;
+const CHAPTERS = [
+  {t:0,   tag:"序章",     title:["搭上","梅岡時光機"], color:"#ff7a6b"},
+  {t:18,  tag:"1968 創校", title:["台灣省立","楊梅高級中學成立"], color:"#4fb3f6"},
+  {t:58,  tag:"1974 雙軌萌芽", title:["成立","職業類科"], color:"#6fd6a8"},
+  {t:90,  tag:"1980–90s 成長", title:["稻田變街道","校長接力棒"], color:"#ffb84e"},
+  {t:130, tag:"2000 改制國立", title:["國立","楊梅高級中學"], color:"#4fb3f6"},
+  {t:165, tag:"2005–2015 日常", title:["同一座梅岡","不同的青春"], color:"#c58cf2"},
+  {t:200, tag:"2018 改隸市立", title:["桃園市立","楊梅高級中等學校"], color:"#ff7a6b"},
+  {t:228, tag:"2019 雙軌學制", title:["普通科","＋職業類科"], color:"#6fd6a8"},
+  {t:248, tag:"2020–21 新大樓", title:["悅知樓","原地重建"], color:"#ffb84e"},
+  {t:278, tag:"現在進行式", title:["梅岡，青春","正在進行式"], color:"#ff7a6b"},
+];
+// 每章的重點便利貼：[出現時間, 文字]
+const FACTS = [
+  [[3,"桃園市楊梅區高獅路 5 號"],[8,"校地約 5.4 公頃・名為「梅岡」"]],
+  [[31.5,"1968.08.01 正式成立"],[36.5,"借用縣立啟明初中校舍"],[43.5,"只設普通科"],[45.5,"首任校長 史振鼎"],[48.5,"校訓：愛自己、愛學校、愛國家"]],
+  [[67,"電子科"],[69,"電機科"],[72.5,"讀詩詞 × 焊電路"],[80,"書聲 × 電流聲"]],
+  null, // 校長接力（特別版面）
+  [[135.5,"2000.02.01 改制國立"],[145.5,"衛星影像時代來臨"],[152,"校地約 5.4 公頃"]],
+  null, // 校長接力（續）
+  null, // 校名演進（特別版面）
+  [[232,"108 學年度起"],[237.5,"普通科"],[239.5,"資訊科"],[241,"電子科"]],
+  [[249,"2020.01 開工"],[259,"總經費約 2.76 億元"],[261.5,"地上 5 層"],[263.5,"以圖書館為核心"],[267.5,"2021 前後落成（日期待查）"]],
+  [[281.5,"1968 → 2026"],[288.5,"下一張空照圖，由你寫下"]],
+];
+const PRINCIPALS_A = [["史振鼎",104.6],["馮堯春",105.7],["董寶鏡",106.8],["欒澤秋",107.9],["郭治華",109.0],["孔建國",110.0]];
+const PRINCIPALS_B = [["鍾香華",172.2],["蘇景進",173.3],["林桂鳳",174.4],["鄒岳廷",175.6]];
+// 旁白（直接套用）
+const NARR = [
+  [0.8,"從這裡出發，搭上梅岡時光機。"],
+  [5,"我們用一張張歷年的空中視角，看楊梅高中一路長大。"],
+  [11.5,"目的地：桃園市楊梅區，高獅路五號。"],
+  [19,"一九六八年，九年國民教育上路。"],
+  [23.5,"政府採取省辦高中、縣辦初中的原則，原縣立楊梅中學的高中部獨立出來。"],
+  [31.5,"八月一日，台灣省立楊梅高級中學正式成立。"],
+  [36.5,"新學校借用縣立啟明初級中學的校舍，落腳在名為梅岡的小山丘。"],
+  [43.5,"當時只設普通科，首任校長是史振鼎先生。"],
+  [48.5,"他留下的校訓，至今仍然響亮：愛自己、愛學校、愛國家。"],
+  [59,"時間快轉到一九七四年。"],
+  [62,"台灣經濟起飛，工廠一間間開進桃園。"],
+  [67,"楊梅高中成立職業類科，開設電子科與電機科。"],
+  [72.5,"同一座校園裡，有人讀詩詞，有人焊電路，雙軌並行的特色從此萌芽。"],
+  [80,"梅岡的鐘聲，開始同時伴著書聲與電流聲。"],
+  [91,"八零、九零年代，楊梅從小鎮變得熱鬧。"],
+  [95.5,"從空中望去，稻田一格格變成街道與屋頂。"],
+  [100,"校長的接力棒，也一棒一棒往下傳。"],
+  [104.5,"從史振鼎、馮堯春、董寶鏡、欒澤秋，到郭治華、孔建國。"],
+  [111,"每一棒，都讓梅岡的根扎得更深。"],
+  [115.5,"一屆屆學生畢業，又一屆屆新生，走上高獅路的坡道。"],
+  [131,"二〇〇〇年二月一日，新世紀的第一年。"],
+  [135.5,"學校由省立改制為國立，正式成為國立楊梅高級中學。"],
+  [142,"這一年，也接上了數位時代。"],
+  [145.5,"從這之後，衛星影像開始清楚記錄校園的每一次改變。"],
+  [152,"校地大約五點四公頃，教室、操場與樹林，在畫面裡越來越清晰。"],
+  [166,"二〇〇五、二〇一〇、二〇一五，畫面一張張翻過去。"],
+  [171.5,"校長由鍾香華、蘇景進、林桂鳳，交棒到鄒岳廷。"],
+  [177.5,"不變的是，每天早上操場上的升旗和跑步聲。"],
+  [183.5,"不同的世代，在同一座梅岡，留下自己的青春。"],
+  [201,"二〇一八年一月一日，學校改隸桃園市。"],
+  [206.5,"校名變成桃園市立楊梅高級中等學校。"],
+  [211.5,"從省立、國立到市立，名字換了三次，梅岡始終是梅岡。"],
+  [229,"二〇一九年，一〇八學年度。"],
+  [232,"學校確立普通高中附設職業類科的雙軌學制。"],
+  [237.5,"普通科之外，還有資訊科與電子科，讓興趣找到舞台。"],
+  [249,"二〇二〇年一月，梅岡響起了施工聲。"],
+  [253,"使用超過半世紀的悅知樓與迎曦樓，拆除後原地重建。"],
+  [259,"新的綜合教學大樓總經費約二點七六億元，地上五層，以圖書館為核心設計。"],
+  [267.5,"二〇二一年前後，新的悅知樓落成，迎接新的學期。"],
+  [279,"現在是二〇二六年。"],
+  [281.5,"從一九六八年借用的校舍，到今天的新大樓，時間一直往前走。"],
+  [288.5,"下一張空照圖，就由你來寫下。梅岡，青春正在進行式。"],
+];
+// 空中視角的年份關鍵影格（年份在兩點之間快速翻動，製造時間推進感）
+const KEYS = [[0,2026],[11.6,2026],[17.4,1968],[58,1968],[59.6,1974],[90,1974],[91.6,1985],[110.5,1985],[111.8,1995],[130,1995],[131.4,2000],[165,2000],[166,2005],[177,2005],[178,2010],[189,2010],[190,2015],[200,2015],[201,2018],[228,2018],[228.8,2019],[248,2019],[248.8,2020],[264.5,2020],[265.3,2021],[278,2021],[279.6,2026],[300,2026]];
+const CHIPS = [[1968,18],[1974,58],[1985,90],[1995,111],[2000,130],[2005,165],[2010,177],[2015,189],[2018,200],[2019,228],[2020,248],[2021,264.5],[2026,278]];
+const MILESTONES = [31.5,135.5,201,267.5]; // 鐘聲
+
+/* ============================================================ 工具 */
+function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const lerp=(a,b,k)=>a+(b-a)*k;
+const easeIO=k=>k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;
+const easeOut=k=>1-Math.pow(1-k,3);
+function spring(dt,w=13,z=.42){ if(dt<=0) return 0; return 1-Math.exp(-z*w*dt)*Math.cos(w*Math.sqrt(1-z*z)*dt); }
+function yearAt(t){
+  for(let i=0;i<KEYS.length-1;i++){const [t0,y0]=KEYS[i],[t1,y1]=KEYS[i+1]; if(t>=t0&&t<=t1){ if(y0===y1) return y0; return Math.round(lerp(y0,y1,easeIO((t-t0)/(t1-t0)))); } }
+  return 2026;
+}
+// 預先掃描年份變化事件（翻頁畫面＆翻頁音效共用）
+const YEV=[]; { let prev=yearAt(0); for(let f=1;f<=DUR*FPS;f++){const t=f/FPS,y=yearAt(t); if(y!==prev){YEV.push([t,prev,y]);prev=y;}} }
+function flipState(t){ // 回傳 {bot, top, k}
+  let lo=-1; for(let i=0;i<YEV.length;i++){ if(YEV[i][0]<=t) lo=i; else break; }
+  if(lo<0) return {bot:yearAt(0),top:yearAt(0),k:1};
+  const [tc,py,ny]=YEV[lo]; const gap = (lo+1<YEV.length)? YEV[lo+1][0]-tc : 1; const d=Math.min(.42, Math.max(.12, gap*.95));
+  return {bot:py, top:ny, k:clamp((t-tc)/d)};
+}
+function chapterAt(t){let c=0;for(let i=0;i<CHAPTERS.length;i++) if(t>=CHAPTERS[i].t) c=i; return c;}
+function narrAt(t){let r=-1;for(let i=0;i<NARR.length;i++){ if(t>=NARR[i][0]) r=i; } if(r<0) return null; const end=r+1<NARR.length?NARR[r+1][0]:DUR; const est=NARR[r][1].length/4.6+1.2; if(t>NARR[r][0]+Math.min(est,end-NARR[r][0])) return null; return {i:r,start:NARR[r][0],text:NARR[r][1]};}
+
+/* ============================================================ 空中視角示意圖產生器 */
+const CX=520, CY=300; // 校園中心（相片座標 0..1000 × 0..620）
+const R0=mulberry(20260101);
+const FIELDS=[]; for(let y=0;y<620;y+=34) for(let x=0;x<1000;x+=46){ FIELDS.push([x+(R0()*4-2),y+(R0()*4-2),44,32,R0()]); }
+const PONDS=[[150,140,46,30,1990],[820,380,58,34,2006],[300,330,36,24,1980],[880,520,40,26,2016],[700,560,30,20,2010],[90,300,40,26,1998]];
+const HOUSES=[];
+{ const R=mulberry(77); let n=0; while(HOUSES.length<520 && n<20000){ n++;
+  const x=R()*1000, y=R()*620; const dx=(x-CX)/260, dy=(y-CY)/175; if(dx*dx+dy*dy<1) continue;
+  if(Math.abs(y-(520+ Math.sin(x/160)*18))<16) continue;
+  // 發展優先：靠近左下市街、主要道路
+  const town=Math.hypot(x-110,y-560)/700, road=Math.abs(y-525)/300, hw=Math.abs((y-0)-(x-640)*0.47)/260;
+  let p=Math.min(town, road*1.1, hw*1.5+.15)+R()*.28;
+  const w=8+R()*12, h=7+R()*10; HOUSES.push([x,y,w,h,p,R()]); } }
+function density(y){const pts=[[1960,.05],[1968,.10],[1974,.16],[1985,.30],[1995,.44],[2000,.52],[2010,.62],[2018,.70],[2026,.76]]; for(let i=0;i<pts.length-1;i++){ if(y<=pts[i+1][0]) return lerp(pts[i][1],pts[i+1][1],(y-pts[i][0])/(pts[i+1][0]-pts[i][0])); } return .76;}
+const ROOF=["#c4553f","#d9d4c6","#8aa6c1","#e8e1d0","#b9b0a0","#7f9fb0","#e3c18c"];
+const AERIAL_CACHE=new Map();
+function rect(x,y,w,h,fill,extra=""){return `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${w.toFixed(1)}" height="${h.toFixed(1)}" fill="${fill}" ${extra}/>`;}
+function bld(x,y,w,h,roof){ return rect(x+4,y+5,w,h,"rgba(30,30,40,.35)")+rect(x,y,w,h,roof,'stroke="rgba(0,0,0,.25)" stroke-width="1"'); }
+function aerial(year){
+  if(AERIAL_CACHE.has(year)) return AERIAL_CACHE.get(year);
+  let s=""; const dens=density(year);
+  // 農田
+  for(const [x,y,w,h,r] of FIELDS){ const col = year<1985 ? ["#9fbf6a","#b4c97a","#8fb35f","#c8cf8a","#a8c26c"][Math.floor(r*5)] : ["#9cc46c","#b6d07d","#86b85e","#cfd893","#a3c972"][Math.floor(r*5)]; s+=rect(x,y,w,h,col); }
+  // 埤塘
+  for(const [x,y,rx,ry,gone] of PONDS){ if(year<gone) s+=`<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="#6aa7c8" stroke="#4d8db0" stroke-width="3"/>`; }
+  // 山丘（梅岡）
+  s+=`<ellipse cx="${CX}" cy="${CY}" rx="300" ry="205" fill="#a7c77a" opacity=".55"/><ellipse cx="${CX}" cy="${CY}" rx="255" ry="172" fill="none" stroke="#7d9d55" stroke-width="2" stroke-dasharray="6 6" opacity=".7"/>`;
+  // 高速公路（1978 後）
+  if(year>=1978) s+=`<path d="M630 -10 L1010 170" stroke="#5a5f6a" stroke-width="30"/><path d="M630 -10 L1010 170" stroke="#e9e3d4" stroke-width="2" stroke-dasharray="14 12"/>`;
+  // 鐵道
+  s+=`<path d="M-10 600 C300 590 650 612 1010 596" stroke="#6b5a4a" stroke-width="7" fill="none"/><path d="M-10 600 C300 590 650 612 1010 596" stroke="#f0eadc" stroke-width="3" stroke-dasharray="6 8" fill="none"/>`;
+  // 主要道路
+  const rw = year<1974?10: year<1995?16:22; const rc = year<1974?"#d8ccb0":"#70747e";
+  s+=`<path d="M-10 520 C200 500 300 545 500 525 S800 505 1010 535" stroke="${rc}" stroke-width="${rw}" fill="none"/>`;
+  // 高獅路（往梅岡的坡道）
+  const gw = year<1985?7:12, gc= year<1974?"#d8ccb0":"#7b7f88";
+  s+=`<path d="M210 625 C250 560 330 470 400 410 S455 360 470 350" stroke="${gc}" stroke-width="${gw}" fill="none"/>`;
+  // 市街小巷
+  if(dens>.25) s+=`<path d="M40 470 L300 470 M80 420 L80 620 M160 400 L160 620 M240 430 L240 600 M700 40 L700 260 M780 80 L980 80 M820 160 L990 160" stroke="${rc}" stroke-width="${dens>.5?7:5}" opacity=".85"/>`;
+  // 房屋
+  for(const [x,y,w,h,p,r] of HOUSES){ if(p<dens) s+=bld(x,y,w,h,ROOF[Math.floor(r*ROOF.length)]); }
+  // ===== 校園 =====
+  s+=`<g transform="translate(${CX} ${CY}) rotate(-8)">`;
+  s+=`<rect x="-225" y="-145" width="450" height="290" rx="26" fill="${year<1985?'#cfc59a':'#a9d68a'}" stroke="#f3efe2" stroke-width="5"/>`;
+  // 操場
+  if(year<1985) s+=rect(-150,8,215,112,"#d9c491",'rx="8"');
+  else if(year<2000) s+=`<rect x="-158" y="4" width="230" height="122" rx="61" fill="#b8805a"/><rect x="-128" y="26" width="170" height="78" rx="39" fill="#8fbf62"/>`;
+  else s+=`<rect x="-162" y="2" width="238" height="126" rx="63" fill="#d4573f"/><rect x="-162" y="2" width="238" height="126" rx="63" fill="none" stroke="#fff" stroke-width="1.4" stroke-dasharray="none" opacity=".7"/><rect x="-150" y="13" width="214" height="104" rx="52" fill="none" stroke="#fff" stroke-width="1.2" opacity=".55"/><rect x="-130" y="28" width="174" height="74" rx="37" fill="#5fb85a"/>`;
+  // 樹
+  const tr = 3+Math.min(1,(year-1968)/40)*8; const TR=mulberry(5);
+  for(let i=0;i<44;i++){ const a=i/44*Math.PI*2; const x=Math.cos(a)*212+TR()*6, y=Math.sin(a)*132+TR()*6; s+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(tr*(0.7+TR()*.5)).toFixed(1)}" fill="${year<1985?'#7c9a52':'#4f9a4a'}"/>`; }
+  // 老建築：悅知樓、迎曦樓（借用的啟明初中校舍）
+  if(year<2020){ s+=bld(-195,-118,150,32,"#e8e1d0"); s+=bld(-200,-80,30,82,"#e8e1d0"); }
+  else if(year===2020){ s+=rect(-205,-124,170,46,"url(#hatch)",'opacity=".9"')+rect(-205,-76,40,86,"url(#hatch)",'opacity=".9"'); }
+  else { s+=bld(-210,-128,185,46,"#7cc28a"); s+=bld(-210,-80,44,90,"#7cc28a"); for(let i=0;i<6;i++) s+=rect(-200+i*28,-120,18,12,"#a8e0a8"); s+=rect(-202,-70,28,14,"#f6d26b"); }
+  // 實習工場（1974）
+  if(year>=1974){ s+=bld(60,-118,112,50,"#cbd3d8"); for(let i=0;i<7;i++) s+=`<path d="M${62+i*16} -68 L${62+i*16} -116 L${76+i*16} -68" fill="#aab4bb"/>`; }
+  if(year>=1985) s+=bld(-20,-122,68,38,"#d8b78a");
+  if(year>=1995) s+=bld(118,-46,70,92,"#e3d7bd");
+  if(year>=2005) s+=bld(90,62,104,66,"#5f8fc4");
+  if(year>=2000){ for(let i=0;i<8;i++) s+=rect(-215+i*13,104,9,14,["#f2f2f2","#d33","#335","#ffd34e"][i%4],'rx="2"'); }
+  // 升旗台
+  s+=`<circle cx="-40" cy="-30" r="${year<1985?9:12}" fill="#efe9d8" stroke="#bfb79f"/>`;
+  s+=`</g>`;
+  AERIAL_CACHE.set(year,s); return s;
+}
+function liveLayer(year,t){ // 會動的細節：車流、雲影、吊車
+  let s="";
+  if(year>=1974){ const n = year<1995?3: year<2010?6:9; for(let i=0;i<n;i++){ const u=((t*0.045+i/n)%1); const x=-20+u*1040; const y=520+Math.sin(x/160)*-8+ (i%2?5:-5); s+=`<rect x="${x.toFixed(1)}" y="${(y-3).toFixed(1)}" width="12" height="6" rx="2" fill="${["#ff7a6b","#fff","#4fb3f6","#ffd34e"][i%4]}"/>`; } }
+  if(year>=1978){ for(let i=0;i<(year<2000?3:6);i++){ const u=((t*0.06+i/6)%1); const x=630+u*380, y=-10+u*180+(i%2?6:-6); s+=`<rect x="${x.toFixed(1)}" y="${(y-3).toFixed(1)}" width="13" height="6" rx="2" fill="${["#fff","#ff7a6b","#4fb3f6"][i%3]}" transform="rotate(25 ${x.toFixed(1)} ${y.toFixed(1)})"/>`; } }
+  if(year===2020){ const a=Math.sin(t*0.7)*25; s+=`<g transform="translate(${CX-150} ${CY-60})"><line x1="0" y1="0" x2="0" y2="-8" stroke="#333" stroke-width="5"/><g transform="rotate(${a.toFixed(1)})"><rect x="-30" y="-4" width="150" height="8" fill="#ffb400" stroke="#333"/><line x1="110" y1="0" x2="110" y2="${(30+Math.sin(t*1.3)*10).toFixed(1)}" stroke="#333" stroke-width="2"/></g><circle r="9" fill="#ffb400" stroke="#333"/></g>`; }
+  // 雲影
+  for(let i=0;i<3;i++){ const x=((t*14+i*420)%1500)-250, y=80+i*190; s+=`<ellipse cx="${x.toFixed(1)}" cy="${y}" rx="150" ry="70" fill="#1f2a44" opacity=".08"/>`; }
+  return s;
+}
+function filterFor(y){ return y<1990?"url(#bw)": y<2000?"url(#faded)":""; }
+function srcFor(y){ if(y<1990) return "示意重繪・可對照：舊航照／臺灣百年歷史地圖"; if(y<2005) return "示意重繪・可對照：國土測繪圖資／航照"; return "示意重繪・可對照：Google Earth 歷史影像"; }
+
+/* ============================================================ 畫面 render(t) */
+const $=id=>document.getElementById(id);
+const layerBot=$("layerBot"), layerTop=$("layerTop");
+const curYear={bot:null,top:null};
+function setLayer(el,key,year){
+  if(curYear[key]!==year){ el.querySelector(".c").innerHTML=aerial(year); curYear[key]=year; const f=filterFor(year); const g=el.querySelector(".f"); if(f) g.setAttribute("filter",f); else g.removeAttribute("filter"); }
+}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+function txt(x,y,str,size,fill,opt={}){
+  const w=opt.weight||900, anchor=opt.anchor||"start", fam=opt.fam||'"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif';
+  return `<text x="${x}" y="${y}" font-size="${size}" font-weight="${w}" fill="${fill}" text-anchor="${anchor}" font-family='${fam}' ${opt.extra||""}>${esc(str)}</text>`;
+}
+function tw(str,size){ let w=0; for(const ch of str) w += /[\x00-\xff]/.test(ch)? size*.56 : size; return w; }
+let ccOn=true;
+function render(t){
+  t=clamp(t,0,DUR);
+  const ci=chapterAt(t), ch=CHAPTERS[ci], tin=t-ch.t; const next=CHAPTERS[ci+1]; const tout=(next?next.t:DUR)-t;
+  /* ---- 背景：漂浮的紙片與時間流 ---- */
+  let bg="";
+  for(let i=0;i<14;i++){ const R=mulberry(100+i); const sp=18+R()*30; const x=((R()*1920 - t*sp*(i%2?1:.6))%2100+2100)%2100-90; const y=120+R()*820+Math.sin(t*.6+i)*16; const rot=t*20*(R()-.5)+R()*360; const col=["#ffd34e","#ff7a6b","#6fd6a8","#4fb3f6","#c58cf2"][i%5];
+    bg+= i%3===0? `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(6+R()*8).toFixed(1)}" fill="${col}" opacity=".55"/>` : `<rect x="${(x-9).toFixed(1)}" y="${(y-5).toFixed(1)}" width="18" height="10" rx="2" fill="${col}" opacity=".55" transform="rotate(${rot.toFixed(1)} ${x.toFixed(1)} ${y.toFixed(1)})"/>`; }
+  // 時間流：斜向流動的虛線
+  bg+=`<path d="M-50 1060 C500 900 1300 1010 1980 880" stroke="#4fb3f6" stroke-width="6" fill="none" opacity=".25" stroke-dasharray="2 26" stroke-linecap="round" stroke-dashoffset="${(-t*90).toFixed(1)}"/>`;
+  bg+=`<path d="M-50 140 C600 60 1200 160 1980 70" stroke="#ff7a6b" stroke-width="5" fill="none" opacity=".2" stroke-dasharray="2 22" stroke-linecap="round" stroke-dashoffset="${(-t*70).toFixed(1)}"/>`;
+  $("bgFx").innerHTML=bg;
+
+  /* ---- 拍立得卡片 ---- */
+  const fs=flipState(t);
+  const lastFlip = (()=>{let r=-9; for(const e of YEV){ if(e[0]<=t) r=e[0]; else break; } return r;})();
+  const bump = Math.exp(-(t-lastFlip)*6)*Math.sin((t-lastFlip)*18)*.6;
+  const ang = -1.8+Math.sin(t*.35)*.7+bump;
+  const enter = ci===0? easeOut(clamp(t/1.2)) : 1;
+  $("card").setAttribute("transform",`translate(${560} ${505+ (1-enter)*700}) rotate(${(ang-(1-enter)*12).toFixed(2)})`);
+  setLayer(layerBot,"bot",fs.bot); setLayer(layerTop,"top",fs.top);
+  layerBot.querySelector(".live").innerHTML=fs.k<1?liveLayer(fs.bot,t):"";
+  layerTop.querySelector(".live").innerHTML=liveLayer(fs.top,t);
+  // 翻頁：由右向左掃過的斜邊
+  const k=easeIO(fs.k); const ex=500-k*1180; // 斜邊 x（頂端）
+  const xt=ex, xb=ex+180; // 底端較右，形成斜面
+  $("flipPoly").setAttribute("points",`${xt},-340 520,-340 520,290 ${xb},290`);
+  if(fs.k<1){ $("flipEdge").setAttribute("points",`${xt-50},-340 ${xt},-340 ${xb},290 ${xb-50},290`); } else $("flipEdge").setAttribute("points","");
+  // 肯伯恩斯緩推
+  const zoomBase = ci===0 ? lerp(1.18,1.0,easeIO(clamp(t/10))) : 1.0+0.05*((t*0.02)%1);
+  const z = ci===0 ? zoomBase : 1.0+0.045*Math.sin(t*.12);
+  $("kb").setAttribute("transform",`translate(${-500} ${-340}) translate(${CX} ${CY}) scale(${z.toFixed(4)}) translate(${-CX} ${-CY})`);
+  const showYear=yearAt(t);
+  $("grainRect").setAttribute("opacity", showYear<1990?.35: showYear<2000?.18:0);
+  // 相片上的標註：梅岡定位針＋章節重點圈
+  let pu="";
+  const pinBob=Math.sin(t*3)*6; const px=CX-500-40, py=CY-340-60;
+  pu+=`<g transform="translate(${px} ${py+pinBob})"><path d="M0 0 C-26 -30 -26 -62 0 -62 C26 -62 26 -30 0 0Z" fill="#ff7a6b" stroke="#fff" stroke-width="4"/><circle cy="-40" r="9" fill="#fff"/></g>`;
+  pu+=`<g transform="translate(${px+30} ${py-92+pinBob})"><rect x="0" y="-30" width="${tw("梅岡・楊梅高中",28)+28}" height="44" rx="22" fill="#1f2a44"/>${txt(14,1,"梅岡・楊梅高中",28,"#fff")}</g>`;
+  const HL={2:[60+56,-93,95,"實習工場（示意）"],8:[-118,-80,130,showYear>=2021?"新悅知樓（示意）":"工區（示意）"],1:[-120,-60,120,"借用的啟明初中校舍"]};
+  if(HL[ci] && tin>4){ const [hx,hy,hr,hl]=HL[ci]; const a=clamp((tin-4)/1.2); const rr=hr*(.6+.4*spring(tin-4)); const th=-8*Math.PI/180; const gx=CX-500+hx*Math.cos(th)-hy*Math.sin(th), gy=CY-340+hx*Math.sin(th)+hy*Math.cos(th);
+    pu+=`<ellipse cx="${gx.toFixed(1)}" cy="${gy.toFixed(1)}" rx="${rr.toFixed(1)}" ry="${(rr*.62).toFixed(1)}" fill="none" stroke="#ffd34e" stroke-width="7" stroke-dasharray="${(a*900).toFixed(0)} 900" stroke-linecap="round"/>`;
+    if(a>.6){ const lw=tw(hl,26)+26; pu+=`<g transform="translate(${(gx+rr*.4).toFixed(1)} ${(gy+rr*.62+38).toFixed(1)}) rotate(-3)" opacity="${clamp((a-.6)/.4)}"><rect x="0" y="-30" width="${lw}" height="42" rx="6" fill="#ffd34e" filter="url(#soft)"/>${txt(13,0,hl,26,"#1f2a44")}</g>`; } }
+  $("photoUi").innerHTML=pu;
+  // 卡片下緣：手寫年份＋來源
+  let cu="";
+  cu+=txt(-490,330,String(showYear),48,"#1f2a44",{fam:'"Baloo 2","Noto Sans TC",sans-serif',weight:800});
+  cu+=txt(-360,326,srcFor(showYear),24,"#6a7390",{weight:700});
+  cu+=txt(490,326,"非實際衛星影像",22,"#ff7a6b",{anchor:"end",weight:700});
+  // 紙膠帶
+  cu+=`<rect x="-80" y="-382" width="160" height="40" fill="#ffd34e" opacity=".85" transform="rotate(-4)"/><rect x="430" y="-370" width="120" height="34" fill="#6fd6a8" opacity=".8" transform="rotate(32 490 -353)"/>`;
+  $("cardUi").innerHTML=cu;
+
+  /* ---- 右側資訊欄 ---- */
+  let u="";
+  // 頂端標頭
+  u+=`<g transform="translate(70 66)"><circle r="30" fill="#ff7a6b"/>${txt(0,11,"梅",32,"#fff",{anchor:"middle"})}${txt(46,-4,"梅岡時光機",30,"#1f2a44")}${txt(48,24,"YANGMEI HIGH SCHOOL · 1968 → 2026",16,"#6a7390",{weight:700,fam:'"Baloo 2",sans-serif'})}</g>`;
+  u+=`<g transform="translate(1850 66)">${txt(0,10,`CH ${String(ci+1).padStart(2,"0")} / ${CHAPTERS.length}`,26,"#6a7390",{anchor:"end",weight:800,fam:'"Baloo 2",sans-serif'})}</g>`;
+  const X0=1210;
+  // 章節貼紙
+  const sp=spring(tin-.1,12,.38), outK=clamp(tout/0.5);
+  const tagW=tw(ch.tag,34)+48;
+  u+=`<g transform="translate(${X0} 168) rotate(-3) scale(${(sp*outK).toFixed(3)})"><rect x="0" y="-38" width="${tagW}" height="58" rx="29" fill="${ch.color}" filter="url(#soft)"/>${txt(24,4,ch.tag,34,"#fff")}</g>`;
+  // 大年份（滾動）
+  const yy=txt(0,0,String(showYear),200,"#1f2a44",{fam:'"Baloo 2","Noto Sans TC",sans-serif',weight:800,extra:'letter-spacing="4"'});
+  u+=`<g transform="translate(${X0+6} 360)"><g transform="translate(8 8)" opacity=".9">${yy.replace(/#1f2a44/g,ch.color)}</g>${yy}</g>`;
+  // 標題（逐行滑入）
+  ch.title.forEach((line,i)=>{ const a=easeOut(clamp((tin-.35-i*.25)/.6))*outK; const size = tw(line,60)>640? Math.floor(640/tw(line,1)) : 60; u+=`<g opacity="${a.toFixed(3)}" transform="translate(${X0+(1-a)*60} ${448+i*74})">${txt(0,0,line,size,"#1f2a44")}</g>`; });
+  // 便利貼／特別版面
+  const FY=590;
+  const facts=FACTS[ci];
+  if(facts){ facts.forEach(([ft,str],i)=>{ const s2=spring(t-ft,14,.4)*outK; if(s2<=0) return; const w=tw(str,30)+48; const rot=(i%2?1.6:-1.4);
+      u+=`<g transform="translate(${X0+ (i%2?24:0)} ${FY+i*64}) rotate(${rot}) scale(${s2.toFixed(3)})"><rect x="0" y="-38" width="${w}" height="54" rx="6" fill="${["#fff6b8","#ffe0d9","#dff6ea","#dcefff","#efe2ff"][i%5]}" filter="url(#soft)"/><rect x="${w/2-26}" y="-46" width="52" height="16" fill="${ch.color}" opacity=".7"/>${txt(24,0,str,30,"#1f2a44",{weight:700})}</g>`; }); }
+  if(ci===3||ci===5){ // 校長接力
+    const L=ci===3?PRINCIPALS_A:PRINCIPALS_B;
+    u+=txt(X0,FY-14,ci===3?"歷任校長・接力（一）":"歷任校長・接力（二）",28,"#6a7390",{weight:700,extra:`opacity="${outK}"`});
+    L.forEach(([nm,tt],i)=>{ const s2=spring(t-tt,14,.45)*outK; if(s2<=0) return; const col=i%2, row=Math.floor(i/2); const x=X0+col*300, y=FY+40+row*92; const lit = t>=tt && (i===L.length-1 || t<L[i+1][1]);
+      u+=`<g transform="translate(${x} ${y}) scale(${s2.toFixed(3)})"><rect x="0" y="-44" width="270" height="70" rx="35" fill="${lit?ch.color:'#ffffff'}" stroke="${ch.color}" stroke-width="4" filter="url(#soft)"/><circle cx="36" cy="-9" r="22" fill="${lit?'#fff':ch.color}"/>${txt(36,0,String(i+1+(ci===5?6:0)),24,lit?ch.color:"#fff",{anchor:"middle",fam:'"Baloo 2",sans-serif',weight:800})}${txt(74,2,nm,34,lit?"#fff":"#1f2a44")}</g>`; });
+    // 接力棒跑者
+    const idx = L.reduce((a,[_,tt],i)=>t>=tt?i:a,-1);
+    if(idx>=0){ const col=idx%2,row=Math.floor(idx/2); const bx=X0+col*300+250, by=FY+40+row*92-60+Math.sin(t*12)*4; u+=`<g transform="translate(${bx} ${by}) rotate(-25)" opacity="${outK}"><rect x="-6" y="-26" width="12" height="44" rx="6" fill="#ffd34e" stroke="#1f2a44" stroke-width="3"/></g>`; }
+    if(ci===3) u+=txt(X0,FY+262,"* 依學校簡介所列順序",20,"#6a7390",{weight:500,extra:`opacity="${clamp(t-104.6)*outK}"`});
+  }
+  if(ci===6){ // 校名演進
+    const N=[["省立","1968",201],["國立","2000",202.5],["市立","2018",204]];
+    N.forEach(([a,b,tt],i)=>{ const s2=spring(t-tt,13,.4)*outK; if(s2<=0) return; const x=X0+i*205, y=FY+40; const last=i===2;
+      u+=`<g transform="translate(${x+80} ${y}) scale(${s2.toFixed(3)})"><circle r="78" fill="${last?ch.color:'#fff'}" stroke="${ch.color}" stroke-width="6" filter="url(#soft)"/>${txt(0,6,a,46,last?"#fff":"#1f2a44",{anchor:"middle"})}${txt(0,46,b,28,last?"#fff":"#6a7390",{anchor:"middle",fam:'"Baloo 2",sans-serif',weight:800})}</g>`;
+      if(i<2 && t>tt+.8) u+=`<path d="M${x+166} ${y} l26 0 m-10 -10 l10 10 l-10 10" stroke="#1f2a44" stroke-width="5" fill="none" stroke-linecap="round" opacity="${outK}"/>`; });
+    const a=spring(t-211.5,10,.5)*outK; if(a>0) u+=`<g transform="translate(${X0} ${FY+200}) rotate(-2) scale(${a.toFixed(3)})"><rect x="0" y="-40" width="560" height="60" rx="8" fill="#fff6b8" filter="url(#soft)"/>${txt(24,2,"名字換了三次，梅岡始終是梅岡",32,"#1f2a44",{weight:700})}</g>`;
+  }
+  // 序章大字（片頭鉤子）
+  if(ci===0){ const a=easeOut(clamp((t-11.6)/.5)); const b=clamp((17.6-t)/.4); if(t>11.4 && t<18){ u+=`<g opacity="${(a*b).toFixed(3)}"><rect x="40" y="380" width="1040" height="240" rx="20" fill="#1f2a44" opacity=".82"/>${txt(560,480,"倒帶中…",64,"#ffd34e",{anchor:"middle"})}${txt(560,560,"2026 → 1968",52,"#fff",{anchor:"middle",fam:'"Baloo 2","Noto Sans TC",sans-serif',weight:800})}</g>`; } }
+  // 片尾落版
+  if(ci===9 && t>293){ const a=easeOut(clamp((t-293)/1.2)); u+=`<g opacity="${a.toFixed(3)}"><rect x="0" y="0" width="1920" height="1080" fill="#fff8ec"/><rect x="0" y="0" width="1920" height="1080" fill="url(#grid)" opacity=".7"/>${txt(960,470,"梅岡，青春正在進行式",96,"#1f2a44",{anchor:"middle"})}${txt(960,560,"桃園市立楊梅高級中等學校・1968 → 2026",40,"#ff7a6b",{anchor:"middle",weight:700})}${txt(960,640,"空中視角均為依年代示意重繪；史實依學校簡介與桃園市政府公開資料整理",24,"#6a7390",{anchor:"middle",weight:500})}</g>`; }
+  // 字幕
+  if(ccOn){ const n=narrAt(t); if(n){ const a=clamp((t-n.start)/.25); const w=Math.min(1780,tw(n.text,36)+70); u+=`<g opacity="${a.toFixed(3)}" transform="translate(960 ${918+ (1-a)*10})"><rect x="${-w/2}" y="-36" width="${w}" height="58" rx="29" fill="#1f2a44" opacity=".88"/>${txt(0,6,n.text,36,"#ffffff",{anchor:"middle",weight:700})}</g>`; } }
+  $("ui").innerHTML=u;
+
+  /* ---- 底部時間軸（跑者＋可點選年份） ---- */
+  const RX0=140, RX1=1780, RY=1024; const yx=y=>RX0+(y-1968)/(2026-1968)*(RX1-RX0);
+  let rb=`<line x1="${RX0}" y1="${RY}" x2="${RX1}" y2="${RY}" stroke="#d9cfb8" stroke-width="10" stroke-linecap="round"/>`;
+  const px2=yx(showYear+ (fs.k<1?0:0));
+  rb+=`<line x1="${RX0}" y1="${RY}" x2="${px2.toFixed(1)}" y2="${RY}" stroke="url(#prog)" stroke-width="10" stroke-linecap="round"/>`;
+  CHIPS.forEach(([y],i)=>{ const past=showYear>=y; const c=chipEls[i]; if(c.past!==past){ c.past=past; c.dot.setAttribute("fill",past?"#ff7a6b":"#fff"); if(c.bg){ c.bg.setAttribute("fill",past?"#1f2a44":"#ffffff"); c.tx.setAttribute("fill",past?"#fff":"#1f2a44"); } } });
+  // 跑步的學生
+  const leg=Math.sin(t*14)*16;
+  rb+=`<g transform="translate(${px2.toFixed(1)} ${RY-40})"><circle cx="0" cy="-30" r="12" fill="#1f2a44"/><rect x="-14" y="-26" width="12" height="22" rx="4" fill="#ff7a6b"/><line x1="0" y1="-18" x2="0" y2="2" stroke="#1f2a44" stroke-width="6" stroke-linecap="round"/><line x1="0" y1="2" x2="${(leg*.5).toFixed(1)}" y2="22" stroke="#1f2a44" stroke-width="6" stroke-linecap="round"/><line x1="0" y1="2" x2="${(-leg*.5).toFixed(1)}" y2="22" stroke="#1f2a44" stroke-width="6" stroke-linecap="round"/><line x1="0" y1="-12" x2="${(-leg*.6).toFixed(1)}" y2="-2" stroke="#1f2a44" stroke-width="5" stroke-linecap="round"/><line x1="0" y1="-12" x2="${(leg*.6).toFixed(1)}" y2="-2" stroke="#1f2a44" stroke-width="5" stroke-linecap="round"/></g>`;
+  $("ribbonDyn").innerHTML=rb;
+  // 里程碑閃光
+  let fl=""; for(const m of MILESTONES){ const d=t-m; if(d>0&&d<.5) fl+=`<rect width="1920" height="1080" fill="#fff" opacity="${((.5-d)/.5*.35).toFixed(3)}"/>`; }
+  for(const c of CHAPTERS){ const d=t-c.t; if(c.t>0 && d>0 && d<.35) fl+=`<rect width="1920" height="1080" fill="#ffd34e" opacity="${((.35-d)/.35*.18).toFixed(3)}"/>`; }
+  $("flash").innerHTML=fl;
+}
+
+/* ---- 時間軸年份標籤（只建立一次，才能穩定點選） ---- */
+const chipEls=[];
+(function buildChips(){
+  const RX0=140, RX1=1780, RY=1024; const yx=y=>RX0+(y-1968)/(2026-1968)*(RX1-RX0);
+  const NS_="http://www.w3.org/2000/svg"; const rib=$("ribbon");
+  const dyn=document.createElementNS(NS_,"g"); dyn.id="ribbonDyn"; rib.appendChild(dyn);
+  const chips=document.createElementNS(NS_,"g"); rib.appendChild(chips);
+  CHIPS.forEach(([y,tt])=>{ const big=![2019,2020].includes(y);
+    const g=document.createElementNS(NS_,"g"); g.setAttribute("class","chip"); g.dataset.t=tt; g.setAttribute("transform",`translate(${yx(y).toFixed(1)} ${RY})`);
+    g.innerHTML=`<circle r="${big?11:7}" fill="#fff" stroke="#ff7a6b" stroke-width="3"/>${big?`<rect x="-36" y="18" width="72" height="30" rx="15" fill="#ffffff" opacity=".9"/>${txt(0,41,String(y),22,'#1f2a44',{anchor:"middle",fam:'"Baloo 2",sans-serif',weight:800})}`:""}<rect x="-26" y="-26" width="52" height="78" fill="transparent"/><title>跳到 ${y}</title>`;
+    chips.appendChild(g); chipEls.push({past:null,dot:g.querySelector("circle"),bg:big?g.querySelectorAll("rect")[0]:null,tx:g.querySelector("text")}); });
+})();
+
+/* ============================================================ 原創配樂與音效（離線合成，可隨時跳播） */
+const SR=24000, NS=SR*DUR;
+const midi=n=>440*Math.pow(2,(n-69)/12);
+function keyShift(t){ return t>=130?2:0; }
+// F 大調：F – C/E – Dm – B♭ – F – C/E – Dm – C
+const PROG=[[53,57,60],[52,55,60],[50,53,57],[46,50,53],[53,57,60],[52,55,60],[50,53,57],[48,52,55]];
+const BASS=[41,40,38,34,41,40,38,36];
+function layers(t){
+  if(t<11.6) return {pad:1,box:1};
+  if(t<17.6) return {pad:.6};
+  if(t<58) return {pad:1,arp:1,tick:1,box:.6};
+  if(t<90) return {pad:1,arp:2,tick:1,bass:1,kick:1};
+  if(t<130) return {pad:1,arp:2,tick:1,bass:1,kick:1,shaker:1,clap:1};
+  if(t<248) return {pad:1,arp:2,tick:1,bass:1,kick:1,shaker:1,clap:1,bell:1};
+  if(t<264.5) return {pad:1,tick:1,bass:.6,box:1};
+  if(t<278) return {pad:1,arp:2,tick:1,bass:1,kick:2,shaker:1};
+  if(t<294) return {pad:1,arp:2,tick:1,bass:1,kick:1,shaker:1,clap:1,bell:1};
+  return {pad:1};
+}
+/* 直接逐取樣點合成（快速、可重現） */
+function Mix(){ this.L=new Float32Array(NS); this.R=new Float32Array(NS); }
+const TAU=Math.PI*2;
+function wave(type,ph){ ph-=Math.floor(ph); if(type==="sine") return Math.sin(ph*TAU); if(type==="tri") return 1-4*Math.abs(ph-.5); return 0; }
+// 單音：attack 線性，之後指數衰減；或 hold 型（pad）
+function addTone(m,type,f,t,a,peak,d,pan=0,opt={}){
+  const n0=Math.floor(t*SR); if(n0>=NS) return; const na=Math.max(1,Math.floor(a*SR)), nd=Math.floor(d*SR); const n1=Math.min(NS,n0+na+nd);
+  const gl=peak*Math.cos((pan+1)*Math.PI/4), gr=peak*Math.sin((pan+1)*Math.PI/4); const hold=opt.hold; const rel=opt.rel||0.6;
+  const df=opt.detune? Math.pow(2,opt.detune/1200):1; let ph=0; const inc=f*df/SR; const fEnd=opt.fEnd;
+  for(let n=Math.max(0,n0);n<n1;n++){ const k=n-n0; let e;
+    if(k<na) e=k/na; else if(hold){ const rem=(n1-n)/SR; e= rem<rel? rem/rel : 1; } else e=Math.exp(-5*(k-na)/nd);
+    let fi=inc; if(fEnd){ const u=k/(n1-n0); fi=(f*Math.pow(fEnd/f,Math.min(1,u*3)))/SR; }
+    ph+=fi; const v=wave(type,ph)*e; m.L[n]+=v*gl; m.R[n]+=v*gr; }
+}
+// 雜訊＋雙二階濾波（掃頻）
+let nseed=12345; function rnd(){ nseed=(nseed*1103515245+12345)&0x7fffffff; return nseed/0x7fffffff*2-1; }
+function addNoise(m,t,dur,ftype,f0,f1,peak,q=1,pan=0,shape="burst"){
+  const n0=Math.floor(t*SR); if(n0>=NS) return; const N=Math.floor(dur*SR); const n1=Math.min(NS,n0+N);
+  const gl=peak*Math.cos((pan+1)*Math.PI/4), gr=peak*Math.sin((pan+1)*Math.PI/4);
+  let x1=0,x2=0,y1=0,y2=0,b0,b1,b2,a1,a2;
+  for(let n=Math.max(0,n0);n<n1;n++){ const k=n-n0, u=k/N;
+    if(k%32===0){ const f=f0*Math.pow(f1/f0,u); const w=TAU*Math.min(f,SR*.45)/SR, cs=Math.cos(w), al=Math.sin(w)/(2*q); const a0=1+al;
+      if(ftype==="bp"){ b0=al/a0; b1=0; b2=-al/a0; } else if(ftype==="hp"){ b0=(1+cs)/2/a0; b1=-(1+cs)/a0; b2=(1+cs)/2/a0; } else { b0=(1-cs)/2/a0; b1=(1-cs)/a0; b2=(1-cs)/2/a0; }
+      a1=-2*cs/a0; a2=(1-al)/a0; }
+    const x=rnd(); const y=b0*x+b1*x1+b2*x2-a1*y1-a2*y2; x2=x1;x1=x;y2=y1;y1=y;
+    const e = shape==="swell"? Math.sin(Math.PI*u) : (u<.08? u/.08 : Math.exp(-4*(u-.08)));
+    m.L[n]+=y*e*gl; m.R[n]+=y*e*gr; }
+}
+function buildMusic(m){
+  const BPM=96, beat=60/BPM, bar=beat*4; const nb=Math.ceil(DUR/bar);
+  for(let b=0;b<nb;b++){
+    const t0=b*bar; if(t0>=DUR) break; const L=layers(t0+.01); const ks=keyShift(t0+.01); const ch=PROG[b%8].map(n=>n+ks); const last=t0+bar>DUR-6;
+    if(L.pad){ const dur= last? DUR-t0-.05 : bar+.35; ch.forEach((n,j)=>{ [-7,7].forEach(dt=>addTone(m,"tri",midi(n+12),t0,.6,.028*L.pad,dur-.6,(j-1)*.45,{hold:1,rel:last?4:.5,detune:dt})); addTone(m,"sine",midi(n),t0,.6,.02*L.pad,dur-.6,(j-1)*.3,{hold:1,rel:last?4:.5}); }); if(last) break; }
+    for(let s=0;s<16;s++){
+      const t=t0+s*beat/4; if(t>=DUR-1) break; const Ls=layers(t);
+      if(Ls.arp && (Ls.arp===2? s%2===0 : s%4===0)){ const pat=[0,1,2,1,0,2,1,2]; const n=ch[pat[(s/2)%8|0]]+24; const pan=((s%4)-1.5)*.25; addTone(m,"sine",midi(n),t,.004,.075,.34,pan); addTone(m,"sine",midi(n)*4,t,.002,.012,.08,pan); }
+      if(Ls.tick && s%4===0) addTone(m,"sine",s%8===0?1900:1600,t,.001,.03,.035,s%8===0?-.3:.3);
+      if(Ls.kick && (Ls.kick===2? s%4===0 : (s===0||s===8||s===10))) addTone(m,"sine",130,t,.003,.42,.3,0,{fEnd:42});
+      if(Ls.clap && (s===4||s===12)) addNoise(m,t,.14,"bp",1600,1200,.35,1.2);
+      if(Ls.shaker && s%2===1) addNoise(m,t,.06,"hp",7000,8000,.06,.7,.35);
+      if(Ls.bass && (s===0||s===6||s===8)){ const n=BASS[b%8]+ks; addTone(m,"tri",midi(n),t,.01,.16*Ls.bass,beat*1.3); }
+      if((Ls.box||Ls.bell) && (s===0||s===6||s===12)){ const deg=[[2,1,0],[0,2,1],[1,0,2],[2,0,1]][b%4]; const idx={0:0,6:1,12:2}[s]; const n=ch[deg[idx]]+36; addTone(m,"sine",midi(n),t,.003,.045*(Ls.box||1),1.0,.2); addTone(m,"tri",midi(n)*2,t,.002,.008,.4,.2); }
+    }
+  }
+}
+function buildSfx(m){
+  let last=-1; for(const [t] of YEV){ if(t-last<.085) continue; last=t; const pan=(Math.round(t*7)%3-1)*.3; addNoise(m,t,.17,"bp",900,3800,.5,.9,pan); addNoise(m,t+.05,.09,"hp",3000,5000,.15,.7,pan); }
+  for(const c of CHAPTERS){ if(c.t===0) continue; addNoise(m,c.t-.45,.8,"bp",280,3200,.4,.8,0,"swell"); addTone(m,"sine",midi(77+keyShift(c.t)),c.t+.05,.005,.05,.7); }
+  addNoise(m,11.6,5.8,"bp",4000,300,.18,2,0,"swell");
+  for(const mm of MILESTONES){ const ks=keyShift(mm); [72,76,79,84].forEach((n,i)=>addTone(m,"sine",midi(n+ks),mm+i*.09,.003,.07,1.3,(i-1.5)*.3)); }
+  const pops=[]; FACTS.forEach(f=>f&&f.forEach(([t])=>pops.push(t))); PRINCIPALS_A.concat(PRINCIPALS_B).forEach(([_,t])=>pops.push(t)); [201,202.5,204,211.5].forEach(t=>pops.push(t));
+  for(const t of pops) addTone(m,"sine",520,t,.003,.06,.1,0,{fEnd:980});
+}
+async function renderAudio(){
+  const yieldUI=()=>new Promise(r=>setTimeout(r,0));
+  const mus=new Mix(); buildMusic(mus); await yieldUI();
+  // 簡易殘響（兩組回授延遲）讓配樂更溫暖
+  for(const [ch,dl,fb] of [["L",.113,.32],["R",.137,.32],["L",.271,.18],["R",.233,.18]]){ const a=mus[ch], D=Math.floor(dl*SR); for(let n=D;n<NS;n++) a[n]+=a[n-D]*fb; }
+  // 片尾淡出
+  for(let n=Math.floor((DUR-5)*SR);n<NS;n++){ const k=1-(n/SR-(DUR-5))/5; mus.L[n]*=k; mus.R[n]*=k; }
+  await yieldUI();
+  const sfx=new Mix(); buildSfx(sfx); await yieldUI();
+  const L=new Float32Array(NS), R=new Float32Array(NS); let pk=0;
+  for(let n=0;n<NS;n++){ L[n]=mus.L[n]*.8+sfx.L[n]; R[n]=mus.R[n]*.8+sfx.R[n]; pk=Math.max(pk,Math.abs(L[n]),Math.abs(R[n])); }
+  const g=pk>0? .85/pk : 1; for(let n=0;n<NS;n++){ L[n]=Math.tanh(L[n]*g*1.1)*.9; R[n]=Math.tanh(R[n]*g*1.1)*.9; }
+  return {L,R,sr:SR};
+}
+/* ============================================================ 播放器（時鐘＝音訊時間） */
+let actx=null, src=null, audioBuf=null, audioReady=null, gainNode=null;
+let playing=false, offset=0, ctxStart=0, perfStart=0;
+let voiceOn=true, musicOn=true;
+const spoken=new Array(NARR.length).fill(false);
+function now(){ if(!playing) return offset; if(actx && src) return offset+(actx.currentTime-ctxStart); return offset+(performance.now()-perfStart)/1000; }
+let zhVoice=null;
+function pickVoice(){ if(!("speechSynthesis" in window)) return; const vs=speechSynthesis.getVoices(); if(!vs.length) return; const def=vs.find(v=>v.default); if(def && /^zh/i.test(def.lang)) zhVoice=def; else zhVoice=vs.find(v=>/zh[-_]TW/i.test(v.lang))||vs.find(v=>/^zh/i.test(v.lang))||null; }
+if("speechSynthesis" in window){ pickVoice(); speechSynthesis.onvoiceschanged=pickVoice; }
+function speak(text){ if(!voiceOn||!("speechSynthesis" in window)) return; const u=new SpeechSynthesisUtterance(text); u.lang="zh-TW"; if(zhVoice) u.voice=zhVoice; u.rate=1.15; u.pitch=1.05; u.volume=1; speechSynthesis.speak(u); }
+function resetSpoken(t){ for(let i=0;i<NARR.length;i++) spoken[i]=NARR[i][0]<t-0.6; if("speechSynthesis" in window) speechSynthesis.cancel(); }
+function startAudio(){ if(!actx||!audioBuf) return; src=actx.createBufferSource(); src.buffer=audioBuf; src.connect(gainNode); ctxStart=actx.currentTime+0.05; src.start(ctxStart, Math.min(offset,DUR-0.01)); offset-=0.05; }
+function stopAudio(){ if(src){ try{src.stop()}catch(e){} src.disconnect(); src=null; } }
+async function play(){
+  if(playing) return; $("cover").classList.add("hidden");
+  if(!actx){ actx=new (window.AudioContext||window.webkitAudioContext)(); gainNode=actx.createGain(); gainNode.gain.value=musicOn?.7:0; gainNode.connect(actx.destination); }
+  if(actx.state==="suspended") await actx.resume();
+  if(!audioBuf){ $("status").textContent="正在合成原創配樂…（第一次需要幾秒鐘）"; try{ const r=await audioReady; audioBuf=actx.createBuffer(2,r.L.length,r.sr); audioBuf.copyToChannel(r.L,0); audioBuf.copyToChannel(r.R,1); }catch(e){ console.warn(e); } $("status").textContent="提示：點選畫面下方的年份標籤，可直接跳到那一年；空白鍵播放／暫停，← → 快退／快轉 5 秒。"; }
+  if(offset>=DUR-.05) offset=0;
+  resetSpoken(offset); playing=true; perfStart=performance.now(); startAudio(); updateBtn();
+}
+function pause(){ if(!playing) return; offset=now(); playing=false; stopAudio(); if("speechSynthesis" in window) speechSynthesis.cancel(); updateBtn(); }
+function seek(t){ const was=playing; if(was){ stopAudio(); playing=false; } offset=clamp(t,0,DUR); resetSpoken(offset); if(was){ playing=true; perfStart=performance.now(); startAudio(); } render(offset); }
+function updateBtn(){ $("play").textContent=playing?"❚❚ 暫停":"▶ 播放"; }
+const fmt=s=>`${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,"0")}`;
+function loop(){
+  const t=now();
+  if(playing){
+    for(let i=0;i<NARR.length;i++){ if(!spoken[i] && t>=NARR[i][0]){ spoken[i]=true; if(t-NARR[i][0]<1.5) speak(NARR[i][1]); } }
+    if(t>=DUR){ playing=false; offset=DUR; stopAudio(); updateBtn(); $("coverMsg").textContent="播放完畢・點一下重新觀看"; $("cover").classList.remove("hidden"); }
+  }
+  render(Math.min(t,DUR));
+  $("time").textContent=`${fmt(Math.min(t,DUR))} / ${fmt(DUR)}`;
+  if(!dragging) $("seek").value=Math.min(t,DUR).toFixed(1);
+  requestAnimationFrame(loop);
+}
+let dragging=false;
+/* ---- 控制項 ---- */
+$("cover").addEventListener("click",play);
+$("play").addEventListener("click",()=>playing?pause():play());
+$("seek").addEventListener("input",e=>{dragging=true; seek(+e.target.value);});
+$("seek").addEventListener("change",()=>{dragging=false;});
+$("voiceBtn").addEventListener("click",e=>{voiceOn=!voiceOn; e.target.classList.toggle("on",voiceOn); e.target.setAttribute("aria-pressed",voiceOn); e.target.textContent=voiceOn?"旁白 開":"旁白 關"; if(!voiceOn&&"speechSynthesis" in window) speechSynthesis.cancel();});
+$("musicBtn").addEventListener("click",e=>{musicOn=!musicOn; e.target.classList.toggle("on",musicOn); e.target.setAttribute("aria-pressed",musicOn); e.target.textContent=musicOn?"音樂 開":"音樂 關"; if(gainNode) gainNode.gain.value=musicOn?.7:0;});
+$("ccBtn").addEventListener("click",e=>{ccOn=!ccOn; e.target.classList.toggle("on",ccOn); e.target.setAttribute("aria-pressed",ccOn); e.target.textContent=ccOn?"字幕 開":"字幕 關";});
+$("srcBtn").addEventListener("click",()=>{ pause(); $("srcDlg").showModal(); });
+$("fsBtn").addEventListener("click",()=>{ const el=$("stageBox"); if(document.fullscreenElement) document.exitFullscreen(); else el.requestFullscreen&&el.requestFullscreen(); });
+$("ribbon").addEventListener("click",e=>{ const c=e.target.closest(".chip"); if(c){ seek(+c.dataset.t); if(!playing) play(); } });
+document.addEventListener("keydown",e=>{ if(e.target.tagName==="INPUT"&&e.key!==" ") return; if(e.key===" "){e.preventDefault(); playing?pause():play();} else if(e.key==="ArrowRight") seek(now()+5); else if(e.key==="ArrowLeft") seek(now()-5); });
+/* ---- 啟動 ---- */
+window.render=render; window.DUR=DUR;
+const qs=new URLSearchParams(location.search);
+if(qs.has("t")){ offset=+qs.get("t"); $("cover").classList.add("hidden"); render(offset); window.READY=true; }
+else { audioReady=renderAudio(); render(0); requestAnimationFrame(loop); (document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{window.READY=true;}); }
+</script>
+</body>
+</html>
